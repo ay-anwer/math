@@ -1,26 +1,52 @@
 # QML & FastAPI Advanced GUI Project
 
-تطبيق سطح مكتب متقدم يربط بين واجهة مستخدم عصرية مبنية باستخدام **Qt Quick / QML** و **PySide6**[cite: 1, 4]، وبين خادم خلفي (Backend) مبني باستخدام إطار العمل **FastAPI**. 
+An advanced desktop application integrating a modern User Interface built with **Qt Quick / QML** and **PySide6**, and a backend server powered by the **FastAPI** framework.
 
-## ✨ المميزات (Features)
+## 📸 Screenshots
 
-* **واجهة مستخدم زجاجية (Glassmorphism):** تعتمد الواجهة بشكل أساسي على تأثيرات البلور (Blur) الواقعية وحواف الشادو لإنشاء حاوية زجاجية شفافة.
-* **تفاعل ثلاثي الأبعاد:** إمكانية سحب الحاوية الزجاجية مع تأثيرات دوران وميلان ثلاثية الأبعاد (3D Rotation) تعتمد على حركة الماوس[cite: 2].
-* **شريط عنوان مخصص (Custom Title Bar):** شريط علوي مصمم برمجياً ليحاكي نسيج قماش الجينز الأزرق مع تفاصيل الخياطة، متضمنًا أزرار تحكم مخصصة وتفاعل مزدوج (Double-click) للتكبير والتصغير[cite: 2].
-* **نظام جزيئات حركي (Particle System):** عند الضغط على زر الإغلاق، يبدأ تأثير حركي يدمج جزيئات النار مع تلاشي الواجهة وظهور شاشة وداع (Goodbye) قبل إغلاق التطبيق كلياً.
-* **معالجة البيانات عبر الـ API:** نظام اتصال (Bridge) مبني بـ PySide6 يقوم بإرسال مدخلات المستخدم إلى خادم FastAPI لمعالجتها (حساب المعادلات الرياضية) واسترجاع النتيجة لعرضها في الواجهة[cite: 3, 5].
+![Screenshot 1](1.png)
 
-## 🛠️ التقنيات المستخدمة (Technologies)
+![Screenshot 2](2.png)
 
-* **Frontend:** QML, Qt Quick (Controls, Layouts, Effects, Particles)[cite: 1, 2]
-* **Bridge / Logic:** Python, PySide6, `requests` library[cite: 3, 4]
+![Screenshot 3](3.png)
+
+![Screenshot 4](4.png)
+
+## ✨ Features
+
+* **Glassmorphism UI:** The interface relies heavily on realistic blur effects and edge shadows to create a transparent glass container.
+* **3D Interaction:** Drag-and-drop glass container with 3D rotation and tilt effects based on mouse movement.
+* **Custom Title Bar:** A programmatically designed title bar mimicking blue denim fabric texture with stitching details, featuring custom control buttons and double-click interaction to maximize/restore.
+* **Particle System Animation:** Clicking the close button triggers an animation sequence integrating fire particles, fading the interface, and displaying a "Goodbye" screen before completely closing the application.
+* **API Data Processing:** A PySide6-based Bridge system that sends user input to a FastAPI backend for processing (evaluating mathematical expressions) and retrieves the result to be displayed on the UI.
+
+## 🛠️ Technologies Used
+
+* **Frontend:** QML, Qt Quick (Controls, Layouts, Effects, Particles)
+* **Bridge / Logic:** Python, PySide6, `requests` library
 * **Backend:** Python, FastAPI, Uvicorn
 
-## 🚀 طريقة التشغيل (How to Run)
+## 🚀 How to Run
 
-لضمان عمل التطبيق بشكل سليم، يجب تشغيل الخادم الخلفي أولاً، ثم تشغيل واجهة المستخدم.
+To ensure the application works correctly, start the backend server first, followed by the user interface.
 
-### 1. تشغيل الخادم الخلفي (FastAPI)
-تأكد من تثبيت الحزم المطلوبة (`fastapi`, `uvicorn`)، ثم قم بتشغيل الملف الخاص بالخادم:
+### 1. Run the Backend Server (FastAPI)
+Make sure the required packages are installed (`fastapi`, `uvicorn`), then run the server script:
 ```bash
-python fastapi_backend.py
+python logic_server.py
+```
+*(Note: The server will run on `127.0.0.1:8000`)*
+
+### 2. Run the User Interface (GUI)
+Ensure the required packages are installed (`PySide6`, `requests`), then run the main application file:
+```bash
+python main.py
+```
+
+## 📂 Project Structure
+
+* `main.qml`: The main UI file, containing window settings, fire particles, and exit animations.
+* `GuiV072.qml`: The design file containing the custom title bar, glass container, and blur effects.
+* `bridge.py`: The QmlSingleton bridge connecting the UI and the server to send/receive data.
+* `main.py`: The application entry point using PySide6.
+* `logic_server.py`: The backend server that receives text and processes the mathematical expressions.
