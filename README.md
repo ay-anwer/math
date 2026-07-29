@@ -1,2 +1,26 @@
-# math
-Desktop app with a QML/PySide6 frontend and FastAPI backend to evaluate math expressions. Features a highly interactive 3D glassmorphism UI, a custom denim-textured title bar, and fire particle exit animations.
+# QML & FastAPI Advanced GUI Project
+
+تطبيق سطح مكتب متقدم يربط بين واجهة مستخدم عصرية مبنية باستخدام **Qt Quick / QML** و **PySide6**[cite: 1, 4]، وبين خادم خلفي (Backend) مبني باستخدام إطار العمل **FastAPI**. 
+
+## ✨ المميزات (Features)
+
+* **واجهة مستخدم زجاجية (Glassmorphism):** تعتمد الواجهة بشكل أساسي على تأثيرات البلور (Blur) الواقعية وحواف الشادو لإنشاء حاوية زجاجية شفافة.
+* **تفاعل ثلاثي الأبعاد:** إمكانية سحب الحاوية الزجاجية مع تأثيرات دوران وميلان ثلاثية الأبعاد (3D Rotation) تعتمد على حركة الماوس[cite: 2].
+* **شريط عنوان مخصص (Custom Title Bar):** شريط علوي مصمم برمجياً ليحاكي نسيج قماش الجينز الأزرق مع تفاصيل الخياطة، متضمنًا أزرار تحكم مخصصة وتفاعل مزدوج (Double-click) للتكبير والتصغير[cite: 2].
+* **نظام جزيئات حركي (Particle System):** عند الضغط على زر الإغلاق، يبدأ تأثير حركي يدمج جزيئات النار مع تلاشي الواجهة وظهور شاشة وداع (Goodbye) قبل إغلاق التطبيق كلياً.
+* **معالجة البيانات عبر الـ API:** نظام اتصال (Bridge) مبني بـ PySide6 يقوم بإرسال مدخلات المستخدم إلى خادم FastAPI لمعالجتها (حساب المعادلات الرياضية) واسترجاع النتيجة لعرضها في الواجهة[cite: 3, 5].
+
+## 🛠️ التقنيات المستخدمة (Technologies)
+
+* **Frontend:** QML, Qt Quick (Controls, Layouts, Effects, Particles)[cite: 1, 2]
+* **Bridge / Logic:** Python, PySide6, `requests` library[cite: 3, 4]
+* **Backend:** Python, FastAPI, Uvicorn
+
+## 🚀 طريقة التشغيل (How to Run)
+
+لضمان عمل التطبيق بشكل سليم، يجب تشغيل الخادم الخلفي أولاً، ثم تشغيل واجهة المستخدم.
+
+### 1. تشغيل الخادم الخلفي (FastAPI)
+تأكد من تثبيت الحزم المطلوبة (`fastapi`, `uvicorn`)، ثم قم بتشغيل الملف الخاص بالخادم:
+```bash
+python fastapi_backend.py
