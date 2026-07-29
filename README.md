@@ -19,14 +19,20 @@ An advanced desktop application integrating a modern User Interface built with *
 * **Custom Title Bar:** A programmatically designed title bar mimicking blue denim fabric texture with stitching details, featuring custom control buttons and double-click interaction to maximize/restore.
 * **Particle System Animation:** Clicking the close button triggers an animation sequence integrating fire particles, fading the interface, and displaying a "Goodbye" screen before completely closing the application.
 * **API Data Processing:** A PySide6-based Bridge system that sends user input to a FastAPI backend for processing (evaluating mathematical expressions) and retrieves the result to be displayed on the UI.
-* **High-Performance ASGI Server:** Utilizes Uvicorn as the ASGI (Asynchronous Server Gateway Interface) server. This provides the FastAPI backend with lightning-fast asynchronous request handling, ensuring maximum performance and efficiency for the project's API.
+
+## ⚡ About Uvicorn & ASGI (The Backend Engine)
+
+This project utilizes **Uvicorn** to run the FastAPI backend. Uvicorn is a high-performance **ASGI** web server. 
+
+* **What is ASGI?** It stands for **Asynchronous Server Gateway Interface**. It is the modern standard interface between async-capable Python web servers, frameworks, and applications.
+* **Why is it used here?** Unlike traditional synchronous servers (WSGI) that handle one request at a time sequentially, an ASGI server like Uvicorn allows the FastAPI application to handle multiple requests **asynchronously** and concurrently. This means non-blocking code execution, lightning-fast response times, and ensuring that the desktop UI remains incredibly smooth and responsive when communicating with the backend.
 
 ## 🛠️ Technologies Used
 
 * **Frontend:** QML, Qt Quick (Controls, Layouts, Effects, Particles)
 * **Bridge / Logic:** Python, PySide6, `requests` library
 * **Backend:** Python, FastAPI
-* **Server:** Uvicorn (ASGI server implementation for high-performance asynchronous networking)
+* **Server:** Uvicorn (ASGI)
 
 ## 🚀 How to Run
 
