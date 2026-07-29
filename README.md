@@ -19,12 +19,14 @@ An advanced desktop application integrating a modern User Interface built with *
 * **Custom Title Bar:** A programmatically designed title bar mimicking blue denim fabric texture with stitching details, featuring custom control buttons and double-click interaction to maximize/restore.
 * **Particle System Animation:** Clicking the close button triggers an animation sequence integrating fire particles, fading the interface, and displaying a "Goodbye" screen before completely closing the application.
 * **API Data Processing:** A PySide6-based Bridge system that sends user input to a FastAPI backend for processing (evaluating mathematical expressions) and retrieves the result to be displayed on the UI.
+* **High-Performance ASGI Server:** Utilizes Uvicorn as the ASGI (Asynchronous Server Gateway Interface) server. This provides the FastAPI backend with lightning-fast asynchronous request handling, ensuring maximum performance and efficiency for the project's API.
 
 ## 🛠️ Technologies Used
 
 * **Frontend:** QML, Qt Quick (Controls, Layouts, Effects, Particles)
 * **Bridge / Logic:** Python, PySide6, `requests` library
-* **Backend:** Python, FastAPI, Uvicorn
+* **Backend:** Python, FastAPI
+* **Server:** Uvicorn (ASGI server implementation for high-performance asynchronous networking)
 
 ## 🚀 How to Run
 
@@ -35,7 +37,7 @@ Make sure the required packages are installed (`fastapi`, `uvicorn`), then run t
 ```bash
 python logic_server.py
 ```
-*(Note: The server will run on `127.0.0.1:8000`)*
+*(Note: Uvicorn acts as the ASGI server under the hood, running the application on `127.0.0.1:8000`)*
 
 ### 2. Run the User Interface (GUI)
 Ensure the required packages are installed (`PySide6`, `requests`), then run the main application file:
